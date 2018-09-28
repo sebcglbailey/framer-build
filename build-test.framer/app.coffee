@@ -3,6 +3,12 @@
 # Page 1
 page1props =
 	backgroundColor: "#222"
+	animateOut:
+		end:
+			x: -Screen.width
+		options:
+			time: 0.5
+			curve: Bezier.easeInOut
 	children:
 		header:
 			backgroundColor: "#00f"
@@ -26,6 +32,14 @@ page1props =
 
 # Page 2
 page2props =
+	animateIn:
+		start:
+			x: Screen.width
+		end:
+			x: 0
+		options:
+			curve: Spring(damping: 0.5)
+			time: 1
 	children:
 		test:
 			backgroundColor: "#0f0"
@@ -50,6 +64,14 @@ page2props =
 
 # Page 3
 page3props =
+	animateIn:
+		start:
+			opacity: 0
+		end:
+			opacity: 1
+		options:
+			curve: "linear"
+			time: 0.5
 	children:
 		test:
 			backgroundColor: "#f00fdd"

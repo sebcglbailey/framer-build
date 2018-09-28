@@ -1,9 +1,17 @@
 Layer::addDraggable = (@options) ->
-	if @options.draggable
-		@draggable.enabled = if @options.draggable.enabled != undefined then @options.draggable.enabled else true
+	unless @options.draggable then return
 
-		for key, value of @options.draggable
-			@draggable[key] = value
+	@draggable.enabled = if @options.draggable.enabled != undefined then @options.draggable.enabled else true
+
+	for key, value of @options.draggable
+		@draggable[key] = value
+
+Layer::addAnimations = (@options) ->
+	unless @options.animateIn || @options.animateOut then return
+
+	if @options.animateIn
+		@props = @options.animateIn.start
+		@animate Object.assign @options.animateIn.end, {options: @options.animateIn.options}
 
 class exports.Build extends Layer
 	constructor: (@options={}) ->
@@ -28,6 +36,7 @@ class exports.Build extends Layer
 
 			child.props = props
 			child.addDraggable(props)
+			child.addAnimations(props)
 			child.name = layer
 			@[layer] = child
 
@@ -40,8 +49,18 @@ class exports.Build extends Layer
 							value()
 
 		@addDraggable(@options)
+		@addAnimations(@options)
 
-	delete: ->
-		@destroy()
-	remove: ->
-		@destroy()
+	animateLeave: ->
+		@animate Object.assign @options.animateOut.end, {options: @options.animateOut.options}
+		@onAnimationEnd ->
+			@destroy()
+
+	delete: (sudden) ->
+		if sudden? || !@options.animateOut then @destroy()
+		else if @options.animateOut then @animateLeave()
+		else @destroy()
+	remove: (sudden) ->
+		if sudden? || !@options.animateOut then @destroy()
+		else if @options.animateOut then @animateLeave()
+		else @destroy()

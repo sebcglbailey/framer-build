@@ -74,3 +74,55 @@ page1Props =
             x: Align.center
             y: Align.center
 ```
+
+## Animating your builds
+
+Just add `animateIn` or `animateOut` to your objects, and any properties you want the animations to have.
+
+`animateIn` takes three options: `start`, `end` and `options`.
+`animateOut` takes two options: `end` and `options`.
+
+```coffeescript
+page1props =
+	backgroundColor: "#222"
+	animateOut:
+		end:
+			x: -Screen.width
+		options:
+			time: 0.5
+			curve: Bezier.easeInOut
+    children:
+        layer1:
+            backgroundColor: "#f00"
+            width: Screen.width
+            height: 100
+            onTap: ->
+                page2 = new Build page2Props
+        content:
+            type: "TextLayer"
+            text: "This is some content."
+            parentLayer: "layer1"
+            x: Align.center
+            y: Align.center
+
+page2Props =
+    animateIn:
+		start:
+			x: Screen.width
+		end:
+			x: 0
+		options:
+			curve: Spring(damping: 0.5)
+			time: 1 
+    children:
+        layer1:
+            backgroundColor: "#00f"
+            y: 150
+            height: 50
+            width: page1.width
+            draggable:
+                momentum: false
+                constraints:
+                    x: 0, y: 0
+                    width: Screen.width, height: Screen.height
+```

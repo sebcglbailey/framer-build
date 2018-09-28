@@ -1,3 +1,4 @@
+{Build} = require "build/build"
 {Build} = require "build"
 
 # Page 1

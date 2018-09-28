@@ -4,6 +4,5 @@
     "author": "Sebastian Bailey",
     "require": "{Build} = require 'build'",
     "install": "build.coffee",
-    "example": "snippet.coffee",
-    "thumb": "Thumb.png"
+    "example": "snippet.coffee"
 }

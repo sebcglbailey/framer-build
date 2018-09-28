@@ -1,3 +1,5 @@
+{Build} = require "build"
+
 # Page 1 setup
 page1Props =
     backgroundColor: "#222"

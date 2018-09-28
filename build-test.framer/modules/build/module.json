@@ -1,0 +1,1 @@
+{"author":"Sebastian Bailey","dependencies":[],"description":"Generate and remove layers from the DOM when you need them, not at run time.","example":"snippet.coffee","github":"https://github.com/sebcglbailey/framer-build","install":"build.coffee","installed_count":0,"name":"Build","require":"{Build} = require 'build'","thumb":"Thumb.png","unique_name":"build"}

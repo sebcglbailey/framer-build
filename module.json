@@ -1,0 +1,9 @@
+{
+    "name": "Build",
+    "description": "Generate and remove layers from the DOM when you need them, not at run time.",
+    "author": "Sebastian Bailey",
+    "require": "{Build} = require 'build'",
+    "install": "build.coffee",
+    "example": "snippet.coffee",
+    "thumb": "Thumb.png"
+}

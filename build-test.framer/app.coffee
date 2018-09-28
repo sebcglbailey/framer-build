@@ -35,8 +35,6 @@ page2props =
 	animateIn:
 		start:
 			x: Screen.width
-		end:
-			x: 0
 		options:
 			curve: Spring(damping: 0.5)
 			time: 1

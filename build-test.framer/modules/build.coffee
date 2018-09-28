@@ -10,8 +10,9 @@ Layer::addAnimations = (@options) ->
 	unless @options.animateIn || @options.animateOut then return
 
 	if @options.animateIn
+		endProps = @props
 		@props = @options.animateIn.start
-		@animate Object.assign @options.animateIn.end, {options: @options.animateIn.options}
+		@animate Object.assign endProps, {options: @options.animateIn.options}
 
 class exports.Build extends Layer
 	constructor: (@options={}) ->

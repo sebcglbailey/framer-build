@@ -79,8 +79,10 @@ page1Props =
 
 Just add `animateIn` or `animateOut` to your objects, and any properties you want the animations to have.
 
-`animateIn` takes three options: `start`, `end` and `options`.
-`animateOut` takes two options: `end` and `options`.
+`animateIn` takes two options: `start`, and `options`
+`animateOut` takes two options: `end`, and `options`
+
+Simply add in the properties you want the layer to start or end with, and it will animate to the default properties that you apply to the layer normally
 
 ```coffeescript
 page1props =

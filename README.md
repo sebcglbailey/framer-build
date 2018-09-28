@@ -15,7 +15,7 @@ Download and move the `build.coffee` file to your modules folder.
 Require the module at the top of your file with the following code:
 
 ```coffeescript
-{Build} - require "build"
+{Build} = require "build"
 ```
 
 ## Setup your layer properties
